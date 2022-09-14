@@ -1,9 +1,11 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Order {
-    static List<PackagingOption> bundles = Arrays.asList(
+    static ArrayList<PackagingOption> bundles = new ArrayList<>(Arrays.asList(
             new PackagingOption("CE",1,5.95d),
             new PackagingOption("CE",3,14.95d),
             new PackagingOption("CE",5,20.95d),
@@ -11,12 +13,12 @@ public class Order {
             new PackagingOption("HM",2,13.95d),
             new PackagingOption("HM",5,29.95d),
             new PackagingOption("HM",8,40.95d),
-            new PackagingOption("SS",1,11.95d));
+            new PackagingOption("SS",1,11.95d)));
 
-    public static List<PackagingOption> filterAndSortList(String code){
+    public static ArrayList<PackagingOption> filterAndSortList(String code){
         Predicate<PackagingOption> byCode = packop -> packop.getCode().equals(code);
 
-        List<PackagingOption> filteredByCodeAndSortedListByQty = bundles.stream()
+        ArrayList<PackagingOption> filteredByCodeAndSortedListByQty = (ArrayList<PackagingOption>) bundles.stream()
                 .filter(byCode)
                 .sorted(Comparator.comparing(PackagingOption::getCode)
                         .thenComparingInt(PackagingOption::getQty)
@@ -26,7 +28,7 @@ public class Order {
     }
 
     public static ArrayList<String> orderCalculation(String code, int qty) {
-        List<PackagingOption> bundles = filterAndSortList(code);
+        ArrayList<PackagingOption> bundles = filterAndSortList(code);
         int remaining_qty = qty;
         ArrayList<String> breakdowns = new ArrayList<>();
         for(int i = 0; i < bundles.size(); i++){
@@ -41,7 +43,6 @@ public class Order {
                 break;
             }
         }
-
         return breakdowns;
     }
 

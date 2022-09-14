@@ -1,4 +1,3 @@
-import java.util.List;
 import java.util.ArrayList;
 
 public class Product {
@@ -60,8 +59,8 @@ public class Product {
         return status;
     }
 
-    public static List<Product> getProductList() {
-        List<Product> products = new ArrayList<Product>();
+    public static ArrayList<Product> getProductList() {
+        ArrayList<Product> products = new ArrayList<Product>();
         products.add(new Product("CE", "Cheese", 5.95d));
         products.add(new Product("HM", "Ham", 7.95d));
         products.add(new Product("SS", "Soy Sauce", 11.95d));

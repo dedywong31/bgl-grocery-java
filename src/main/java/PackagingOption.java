@@ -1,4 +1,3 @@
-import java.util.List;
 import java.util.ArrayList;
 public class PackagingOption {
     private String code;
@@ -35,13 +34,13 @@ public class PackagingOption {
         this.price = price;
     }
 
-//    @Override
-//    public String toString(){
-//        return "Packaging Option{" +
-//                "code='" + this.code + "'" +
-//                ", qty=" + this.qty +
-//                ", price=" + this.price +"}";
-//    }
+    @Override
+    public String toString(){
+        return "Packaging Option{" +
+                "code='" + this.code + "'" +
+                ", qty=" + this.qty +
+                ", price=" + this.price +"}";
+    }
 
     /**
      * If mismatch in order results in failure.
@@ -59,8 +58,8 @@ public class PackagingOption {
         return status;
     }
 
-    public static List<PackagingOption> getPackOpsList(){
-        List<PackagingOption> packops = new ArrayList<PackagingOption>();
+    public static ArrayList<PackagingOption> getPackOpsList(){
+        ArrayList<PackagingOption> packops = new ArrayList<PackagingOption>();
         packops.add(new PackagingOption("CE",3,14.95d));
         packops.add(new PackagingOption("CE",5,20.95d));
         packops.add(new PackagingOption("HM",2,13.95d));
