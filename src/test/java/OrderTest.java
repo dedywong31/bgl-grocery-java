@@ -7,6 +7,11 @@ import static org.junit.jupiter.api.Assertions.*;
 public class OrderTest {
 
     @Test
+    public void testOrderCalculation(){
+        assertNotNull(Order.orderCalculation("CE",1));
+    }
+
+    @Test
     public void testOrderCalculationCheese(){
         ArrayList<String> expectedOutput = new ArrayList<>();
         expectedOutput.add("2 packages of 5 items ($20.95 each)");
